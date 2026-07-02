@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+SECRETS
+.env
+results/
+memory/
+logs/
+logs_vllm_serve/
+output/
+loop1_output_*/
+loop2_output_*/
+*.log
+*_debug.jsonl
+saves/
+models/
+*_merged/

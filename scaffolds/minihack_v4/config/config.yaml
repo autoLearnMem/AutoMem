@@ -1,0 +1,90 @@
+agent: 
+  type: memory
+  max_text_history: 10
+  max_image_history: 0
+  max_cot_history: 1
+  max_log_iterations: 10
+  max_validate_iterations: 10
+  max_search_results: 1000
+  fallback_action: null
+  memory_dir: "memory"
+
+eval:
+  output_dir: "results"
+  run_name: null
+  seeds: [42, 43, 44, 45, 46]
+  resume_from: null
+  num_workers: 40
+  num_episodes:
+    nle: 5
+    minihack: 5
+    crafter: 10
+  max_steps_per_episode: null
+  save_images: False
+  feedback_on_invalid_action: True
+
+client:
+  client_name: vllm
+  model_id: Qwen/Qwen2.5-32B-Instruct
+  base_url: http://0.0.0.0:7111/v1
+  generate_kwargs:
+    temperature: 1.0
+    max_tokens: 4096
+  thinking_budget: null
+  timeout: 60
+  max_retries: 1
+  delay: 1
+  alternate_roles: False
+
+envs:
+  names: minihack
+  env_kwargs:
+    seed: null
+  nle_kwargs:
+    character: "@"
+    max_episode_steps: 100_000
+    no_progress_timeout: 150
+    savedir: null
+    save_ttyrec_every: 0
+    skip_more: True
+  minihack_kwargs: 
+    character: "@"
+    max_episode_steps: 100
+    penalty_step: -0.01
+    penalty_time: 0.0
+    penalty_mode: constant
+    savedir: null
+    save_ttyrec_every: 0
+    autopickup: True
+    skip_more: True
+  crafter_kwargs:
+    area: [64, 64]
+    view: [9, 9]
+    size: [256, 256]
+    reward: True
+    seed: null
+    max_episode_steps: 2000
+    unique_items: True
+    precise_location: False
+    skip_items: []
+    edge_only_items: []
+
+tasks:
+  nle_tasks:
+    - NetHackChallenge-v0
+  minihack_tasks:
+    - "MiniHack-Boxoban-Hard-v0"
+    - "MiniHack-Boxoban-Medium-v0"
+    - "MiniHack-MazeWalk-9x9-v0"
+    - "MiniHack-MazeWalk-15x15-v0"
+    - "MiniHack-Corridor-R3-v0"
+    - "MiniHack-CorridorBattle-Dark-v0"
+    - "MiniHack-Quest-Easy-v0"
+    - "MiniHack-Quest-Medium-v0"
+  crafter_tasks:
+    - "default"
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
