@@ -3,6 +3,8 @@
 
 [![Website](https://img.shields.io/badge/🌐_Website-AutoMem-2D7D86)](https://autolearnmem.github.io/)
 [![Paper](https://img.shields.io/badge/📄_Paper-arXiv-b31b1b)](https://arxiv.org/abs/2607.01224)
+[![Hugging Face](https://img.shields.io/badge/🤗_Paper-Hugging_Face-FFD21E)](https://huggingface.co/papers/2607.01224)
+[![X Thread](https://img.shields.io/badge/Thread-on_X-black?logo=x&logoColor=white)](https://x.com/ShengguangWu/status/2073083010631795083)
 
 </div>
 
